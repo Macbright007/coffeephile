@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import { Card } from "./styles";
 import { Link } from "react-router-dom";
 import CoffeeContext from "../contexts/CoffeeContext";
+import { ToastContainer } from 'react-toastify';
 
 const ProductCard = ({ item }) => {
   const { id, coffee_name, price, img } = item;
@@ -26,6 +27,8 @@ const ProductCard = ({ item }) => {
           <button onClick={() => addToCart(item)}>Add to Cart</button>
         </div>
       </div>
+
+      <ToastContainer />
     </Card>
   );
 };

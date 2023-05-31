@@ -6,15 +6,23 @@ import { GiCoffeeCup } from "react-icons/gi";
 import { FiShoppingCart, FiSearch } from "react-icons/fi";
 import Search from "./Search";
 import CoffeeContext from "../contexts/CoffeeContext";
+import CartDropDown from "./CartDropDown";
+import cart from "../images/empty.jpg"
+
 
 const Navbar = () => {
-  const { addedCoffee } = useContext(CoffeeContext);
+  const { addedCoffee, removeFromCart } = useContext(CoffeeContext);
+
+  const totalPrice = addedCoffee.reduce(
+    (acc, curr) => acc + curr.price * curr.qty,
+    0
+  );
 
   return (
     <Navigation>
       <div className="wrap">
         <div className="rightnav__side">
-          <Link to="/" style={{textDecoration: "none", color: "#753d21"}}>
+          <Link to="/" style={{ textDecoration: "none", color: "#753d21" }}>
             <h1>
               {/* <img src={logo} alt="logo" /> */}
               <span>
@@ -46,16 +54,45 @@ const Navbar = () => {
           </div>
 
           <button>SignUp</button>
-          <FiShoppingCart
-            style={{
-              color: "#753d21",
-              fontSize: "25px",
-              marginTop: "7px",
-              marginLeft: "1em",
-              cursor: "pointer",
-            }}
-          />
-          <span className="spa">{addedCoffee.length}</span>
+
+          <div className="shop">
+            <FiShoppingCart
+              style={{
+                color: "#753d21",
+                fontSize: "25px",
+                marginTop: "7px",
+                marginLeft: "1em",
+                cursor: "pointer",
+              }}
+              className="shop_icon"
+            />
+            <span className="spa">{addedCoffee.length}</span>
+            <div className="menu">
+              {addedCoffee.length === 0 ? (
+                <div className="empty-cart">
+                  <img src={cart} className="img-fluid" alt="cart" />
+                  <h3>empty cart!</h3>
+                  <p>
+                    Start shopping to add items to your cart
+                  </p>
+                </div>
+              ) : (
+                <>
+                  {addedCoffee.map((coffee) => {
+                    return <CartDropDown coffee={coffee} />
+                  })}
+                </>
+              )}
+              {addedCoffee.length > 0 && <p className="buttonPara">Clear</p>}
+              <div className="checkOut">
+                <p>Total:</p>
+                <h3>${totalPrice}</h3>
+              </div>
+              <div className="btn_btn">
+                <button>Place Order</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Navigation>

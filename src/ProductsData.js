@@ -25,7 +25,7 @@ export const CoffeeDetails = [
     {
       id: 3,
       coffee_name : "Macchiato Coffee",
-      price: 50,
+      price: 350,
       img: imagethree
     },
     {

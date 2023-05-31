@@ -65,6 +65,12 @@ export const Navigation = styled.nav`
         border-radius: 1rem 3rem;
         cursor: pointer;
     }
+    .shop{
+      // border: 2px solid;
+      display: flex;
+      position: relative;
+      float: left;
+    }
     .spa{
         height: 20px;
         width: 20px;
@@ -74,12 +80,127 @@ export const Navigation = styled.nav`
         background: #753d21;
         color: #fff;
         border-radius: 100%;
-        font-size: 14px;
+        font-size: 10px;
         font-weight: 900;
         cursor: pointer;
     }
+    .menu{
+      display: none;
+      border: 3px outset #753d21;
+      // height: 30vh;
+      margin: 2.5rem 2rem 0 0;
+      width: 200px;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      padding: 1rem;
+    }
+    
+    .shop:hover .menu{
+      display: block;
+    }
 
+    .empty-cart {
+      text-align: center;
+      padding-bottom: .5rem; 
+    }
+  
+    .img-fluid {
+      width: 80%;
+    }
+  
+    .empty-cart h3{
+      color: #753d21;
+      font-size: 18px;
+      text-transform: capitalize;
+      margin: 1rem 0;
+    }
+    .empty-cart p {
+      color: grey;
+      font-size: 15px;
+      margin-bottom: 1rem;
+    }
+
+    .checkOut{
+      // border: 2px solid;
+      margin: 1rem 0; 
+      display: flex;
+      justify-content: space-between;
+    }
+    .checkOut>p{
+      font-size: 18px;
+    }
+    .checkOut h3{
+      margin-top: 3px;
+      font-size: 15px;
+    }
+
+    .buttonPara{
+      color: red;
+      margin-top: 10px;
+    }
+
+    .btn_btn button{
+      width: 100%;
+      border-radius: 3rem;
+    }
 `;
+
+// styling for cart dropdown
+export const CartWrapper = styled.div`
+    border: 2px inset #753d21;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: .5rem;
+    padding: .1em;
+  
+    .image__cont{
+      border-radius: 100%;
+      width: 45px;
+      height: 45px;
+    }
+    .image__cont img{
+      border-radius: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: fit;
+    }
+    .increValue{
+      background: #fff;
+      border: 2px groove;
+      width: 80%;
+      margin: auto;
+      display: flex;
+    }
+    .increValue span{
+      color: #753d21;
+      cursor: pointer;
+      border: 1px solid;
+      width: 100%;
+      text-align: center;
+      font-weight: 800;
+    }
+    .increValue span:nth-child(odd) {
+      background: #753d21;
+      color: #fff;
+    }
+
+    .content__side h2{
+      color: #753d21;
+      font-size: 14px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .delIcon{
+      color: red;
+      font-size: 22px;
+      cursor: pointer;
+    }
+`
 
 export const SearchContainer = styled.form`
   width: 100%;
@@ -218,6 +339,7 @@ export const Card = styled.div`
     background: #753d21;
     border: none;
     border-radius: 3rem 1rem;
+    cursor: pointer;
   }
 `;
 

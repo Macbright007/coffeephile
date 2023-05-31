@@ -1,5 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { CoffeeDetails } from "../ProductsData";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CoffeeContext = createContext({});
 
@@ -13,31 +15,44 @@ const getCoffeesFromStorage = () => {
 
 export const CoffeeProvider = ({ children }) => {
   const [addedCoffee, setAddedCoffee] = useState(getCoffeesFromStorage());
-  
 
   // function to add coffee to cart page
-  const addToCart =(coffee)=> {
-    const exist = addedCoffee.find(x => x.id === coffee.id);
-    if (exist) {
-        setAddedCoffee(addedCoffee.map(x => x.id === coffee.id ? {...exist, qty: exist.qty + 1} : x ))
-    } else {
-        setAddedCoffee([...addedCoffee, {...coffee, qty: 1}]);
+  const addToCart = (coffee) => {
+    const exist = addedCoffee.find((x) => x.id === coffee.id);
+    if (exist){
+      setAddedCoffee(
+        addedCoffee.map((x) =>
+          x.id === coffee.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+      toast.warning('Product already added!', {
+        position: toast.POSITION.TOP_LEFT
+    });
+    } 
+    else {
+      setAddedCoffee([...addedCoffee, { ...coffee, qty: 1 }]);
+      toast.success("Product Added successfully!", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     }
-}
+  };
 
   useEffect(() => {
     localStorage.setItem("selectedCoffees", JSON.stringify(addedCoffee));
   }, [addedCoffee]);
 
- 
-  const removeFromCart =(coffeeId)=> {
-    const exist = addedCoffee.find((x) => x.id ===coffeeId);
-    if(exist.qty === 1) {
-        setAddedCoffee(addedCoffee.filter((x) => x.id !== coffeeId));
+  const removeFromCart = (coffeeId) => {
+    const exist = addedCoffee.find((x) => x.id === coffeeId);
+    if (exist.qty === 1) {
+      setAddedCoffee(addedCoffee.filter((x) => x.id !== coffeeId));
     } else {
-        setAddedCoffee(addedCoffee.map(x => x.id === coffeeId ? {...exist, qty: exist.qty - 1} : x ))
+      setAddedCoffee(
+        addedCoffee.map((x) =>
+          x.id === coffeeId ? { ...exist, qty: exist.qty - 1 } : x
+        )
+      );
     }
-}
+  };
 
   return (
     <CoffeeContext.Provider
