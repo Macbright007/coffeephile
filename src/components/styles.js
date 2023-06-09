@@ -177,20 +177,22 @@ export const Navigation = styled.nav`
       
       .leftnav__side {
         display: none;
-        width: 100%;
-        height: 18vh;
+        // width: 100%;
+        height: 30vh;
         padding: 20px;
         position: absolute;
         top: 20px;
-        left: 0;
-        margin: 70px;
+        right: -250px;
+        // left: -250px;
+        width: 500px;
+        margin-top: 70px;
         z-index: 1;
         // background-color: #c0886a;
         background-color: #000;
         opacity: .8;
         color: white;
         border-bottom: 4px solid #c0886a;
-        transition: right 200s ease;
+        transition: left 0.3s ease-out;
       }
         
       label {
@@ -198,6 +200,7 @@ export const Navigation = styled.nav`
         cursor: pointer;
         color: #753d21;
         margin-right: 30px;
+        transition: transform 0.3s ease;
       }
 
       .nav-items{
@@ -227,12 +230,12 @@ export const Navigation = styled.nav`
       }
       .shop{
         position: absolute; 
-        top: 11rem;
-        right: 10rem;
+        top: 11.4rem;
+        right: 3rem;
       }
       .shop_icon{
         color: white;
-        font-size: 40px;
+        font-size: 42px;
       }
       .spa{
         background-color: white;
@@ -244,6 +247,10 @@ export const Navigation = styled.nav`
      #toggle:checked + .leftnav__side {
         display: block;
         right: 0;
+        // left: 0;
+      }
+      #toggle:checked + label {
+        transform: translateX(250px);
       }
     }
 `;
@@ -452,7 +459,7 @@ export const Card = styled.div`
 
   // responsive code
   @media (max-width: 648px) {
-    width: 80%;
+    width: 85%;
     margin: auto;
 
     .content h2 {
