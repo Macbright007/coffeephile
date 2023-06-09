@@ -184,7 +184,7 @@ export const Navigation = styled.nav`
         top: 20px;
         right: -250px;
         // left: -250px;
-        width: 500px;
+        width: 300px;
         margin-top: 70px;
         z-index: 1;
         // background-color: #c0886a;
@@ -222,11 +222,11 @@ export const Navigation = styled.nav`
       }
     
       button{
-       padding: 1.3rem;
+       padding: 1rem;
        margin: 1.5rem 0;
        font-size: 20px;
        letter-spacing: 2px;
-        width: 30%;
+        width: 4  0%;
       }
       .shop{
         position: absolute; 
@@ -471,10 +471,10 @@ export const Card = styled.div`
     }
 
     .inner__content button {
-      padding: .8rem;
-      font-size: 22px;
+      padding: .6rem;
+      width: 60%;
+      font-size: 18px;
       letter-spacing: 3px;
-      word-spacing: 5px;
     }
   }
 `;
