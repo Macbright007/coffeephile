@@ -7,11 +7,10 @@ import { FiShoppingCart, FiSearch } from "react-icons/fi";
 import Search from "./Search";
 import CoffeeContext from "../contexts/CoffeeContext";
 import CartDropDown from "./CartDropDown";
-import cart from "../images/empty.jpg"
-
+import cart from "../images/empty.jpg";
 
 const Navbar = () => {
-  const { addedCoffee, removeFromCart } = useContext(CoffeeContext);
+  const { addedCoffee } = useContext(CoffeeContext);
 
   const totalPrice = addedCoffee.reduce(
     (acc, curr) => acc + curr.price * curr.qty,
@@ -47,39 +46,34 @@ const Navbar = () => {
           </div>
         </div>
 
+        <label for="toggle">&#9776;</label>
+        <input type="checkbox" id="toggle" />
         <div className="leftnav__side">
           <div className="nav-items">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
+            <Link to="/">
+              Home
+            </Link>
+            <Link to="/about">
+              About
+            </Link>
           </div>
 
           <button>SignUp</button>
 
           <div className="shop">
-            <FiShoppingCart
-              style={{
-                color: "#753d21",
-                fontSize: "25px",
-                marginTop: "7px",
-                marginLeft: "1em",
-                cursor: "pointer",
-              }}
-              className="shop_icon"
-            />
+            <FiShoppingCart className="shop_icon" />
             <span className="spa">{addedCoffee.length}</span>
             <div className="menu">
               {addedCoffee.length === 0 ? (
                 <div className="empty-cart">
                   <img src={cart} className="img-fluid" alt="cart" />
                   <h3>empty cart!</h3>
-                  <p>
-                    Start shopping to add items to your cart
-                  </p>
+                  <p>Start shopping to add items to your cart</p>
                 </div>
               ) : (
                 <>
                   {addedCoffee.map((coffee) => {
-                    return <CartDropDown coffee={coffee} />
+                    return <CartDropDown coffee={coffee} />;
                   })}
                 </>
               )}

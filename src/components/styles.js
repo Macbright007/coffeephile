@@ -35,11 +35,21 @@ export const Navigation = styled.nav`
         width: 60%;
     }
 
+    label {
+      display: none;
+      font-weight: 900;
+      font-size: 3rem;
+    }
+    input {
+      display: none;
+    }
+
     .leftnav__side{
         // border: 2px solid;
         width: 50%;
         display: flex;
         justify-content: end;
+       
     }
     .nav-items{
         margin-top: .4rem;
@@ -70,6 +80,13 @@ export const Navigation = styled.nav`
       display: flex;
       position: relative;
       float: left;
+    }
+    .shop_icon{
+      color: #753d21;
+      font-size: 25px;
+      margin-top: 7px;
+      margin-left: 1em;
+      cursor: pointer;
     }
     .spa{
         height: 20px;
@@ -146,61 +163,144 @@ export const Navigation = styled.nav`
       width: 100%;
       border-radius: 3rem;
     }
+
+    @media (max-width: 648px) {
+      .rightnav__side h1{
+        font-size: 2rem;
+        margin-top: .9rem;
+      }
+      .search {
+        // border: 2px solid;
+        width: 50%;
+        display: none; 
+      }
+      
+      .leftnav__side {
+        display: none;
+        width: 100%;
+        height: 18vh;
+        padding: 20px;
+        position: absolute;
+        top: 20px;
+        left: 0;
+        margin: 70px;
+        z-index: 1;
+        // background-color: #c0886a;
+        background-color: #000;
+        opacity: .8;
+        color: white;
+        border-bottom: 4px solid #c0886a;
+        transition: right 200s ease;
+      }
+        
+      label {
+        display: block;
+        cursor: pointer;
+        color: #753d21;
+        margin-right: 30px;
+      }
+
+      .nav-items{
+        display: flex;
+        flex-direction: column;
+      }
+      .nav-items a{
+        color: white;
+        font-size: 22px;
+        padding-top: 2rem;
+        text-align: center;
+        border-bottom: 4px solid #c0886a;
+      }
+
+      .nav-items a:hover {
+        background-color: white;
+        color: #00474b;
+        cursor: pointer;
+      }
+    
+      button{
+       padding: 1.3rem;
+       margin: 1.5rem 0;
+       font-size: 20px;
+       letter-spacing: 2px;
+        width: 30%;
+      }
+      .shop{
+        position: absolute; 
+        top: 11rem;
+        right: 10rem;
+      }
+      .shop_icon{
+        color: white;
+        font-size: 40px;
+      }
+      .spa{
+        background-color: white;
+        color: #753d21;
+        height: 30px;
+        width: 30px;
+        font-size: 15px;
+      }
+     #toggle:checked + .leftnav__side {
+        display: block;
+        right: 0;
+      }
+    }
 `;
 
 // styling for cart dropdown
 export const CartWrapper = styled.div`
-    border: 2px inset #753d21;
-    display: flex;
-    justify-content: space-between;
+  border: 2px inset #753d21;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.1em;
+
+  .image__cont {
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+  }
+  .image__cont img {
+    border-radius: 100%;
     width: 100%;
-    margin-top: .5rem;
-    padding: .1em;
-  
-    .image__cont{
-      border-radius: 100%;
-      width: 45px;
-      height: 45px;
-    }
-    .image__cont img{
-      border-radius: 100%;
-      width: 100%;
-      height: 100%;
-      object-fit: fit;
-    }
-    .increValue{
-      background: #fff;
-      border: 2px groove;
-      width: 80%;
-      margin: auto;
-      display: flex;
-    }
-    .increValue span{
-      color: #753d21;
-      cursor: pointer;
-      border: 1px solid;
-      width: 100%;
-      text-align: center;
-      font-weight: 800;
-    }
-    .increValue span:nth-child(odd) {
-      background: #753d21;
-      color: #fff;
-    }
+    height: 100%;
+    object-fit: fit;
+  }
+  .increValue {
+    background: #fff;
+    border: 2px groove;
+    width: 80%;
+    margin: auto;
+    display: flex;
+  }
+  .increValue span {
+    color: #753d21;
+    cursor: pointer;
+    border: 1px solid;
+    width: 100%;
+    text-align: center;
+    font-weight: 800;
+  }
+  .increValue span:nth-child(odd) {
+    background: #753d21;
+    color: #fff;
+  }
 
-    .content__side h2{
-      color: #753d21;
-      font-size: 14px;
-      text-align: center;
-      letter-spacing: 1px;
-    }
+  .content__side h2 {
+    color: #753d21;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
 
-    .delIcon{
-      color: red;
-      font-size: 22px;
-      cursor: pointer;
-    }
-`
+  .delIcon {
+    color: red;
+    font-size: 22px;
+    cursor: pointer;
+  }
+`;
 
 export const SearchContainer = styled.form`
   width: 100%;
@@ -238,6 +338,14 @@ export const ProductsWrapper = styled.section`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+  }
+
+  // responsive code
+  @media (max-width: 648px) {
+    .card__container {
+      max-width: 648px;
+      grid-template-columns: 1fr;
+    }
   }
 `;
 
@@ -297,7 +405,7 @@ export const Card = styled.div`
   border-bottom: 2px solid #753d21;
   border-radius: 25px;
   border-top-left-radius: 0;
-  border-bottom-rightt-radius: 0;
+  border-bottom-right-radius: 0;
   box-shadow: 1px 1px 3px 1px #753d21;
   width: 100%;
 
@@ -340,6 +448,27 @@ export const Card = styled.div`
     border: none;
     border-radius: 3rem 1rem;
     cursor: pointer;
+  }
+
+  // responsive code
+  @media (max-width: 648px) {
+    width: 80%;
+    margin: auto;
+
+    .content h2 {
+      font-size: 25px;
+    }
+
+    .inner__content p {
+      font-size: 23px;
+    }
+
+    .inner__content button {
+      padding: .8rem;
+      font-size: 22px;
+      letter-spacing: 3px;
+      word-spacing: 5px;
+    }
   }
 `;
 
@@ -467,6 +596,39 @@ export const LeftSideContent = styled.div`
     p {
       font-size: 20px;
       // color: green;
+    }
+  }
+`;
+
+export const SelectWrapper = styled.div`
+  position: sticky;
+  top: 4rem;
+
+  .menu {
+    border: 2px solid #753d21;
+    width: 20%;
+    padding: 0.5rem;
+    margin: 1rem 2rem;
+    // background-color: #753d21;
+    color: #fff;
+    background-color: #c0886a;
+    outline: none;
+    cursor: pointer;
+  }
+
+  select option:hover {
+    background-color: red; /* Replace "red" with the desired color */
+  }
+  option:checked {
+    background-color: #753d21;
+  }
+
+  // responsive code
+  @media (max-width: 648px) {
+    .menu {
+      width: 55%;
+      padding: 1.1rem;
+      font-size: 21px;
     }
   }
 `;
