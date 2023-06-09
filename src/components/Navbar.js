@@ -10,7 +10,7 @@ import CartDropDown from "./CartDropDown";
 import cart from "../images/empty.jpg";
 
 const Navbar = () => {
-  const { addedCoffee } = useContext(CoffeeContext);
+  const { addedCoffee, removeFromCart } = useContext(CoffeeContext);
 
   const totalPrice = addedCoffee.reduce(
     (acc, curr) => acc + curr.price * curr.qty,
@@ -40,22 +40,18 @@ const Navbar = () => {
 
           <div className="search">
             <FiSearch
-              style={{ color: "#a9643c", fontSize: "25px", marginTop: ".1em" }}
+              style={{ color: "#a9643c", fontSize: "22px", marginTop: ".2em" }}
             />
             <Search />
           </div>
         </div>
 
         <label for="toggle">&#9776;</label>
-        <input type="checkbox" id="toggle" />
+        <input type="checkbox" id="toggle" className="menu_icon" />
         <div className="leftnav__side">
           <div className="nav-items">
-            <Link to="/">
-              Home
-            </Link>
-            <Link to="/about">
-              About
-            </Link>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
           </div>
 
           <button>SignUp</button>
@@ -77,7 +73,12 @@ const Navbar = () => {
                   })}
                 </>
               )}
-              {addedCoffee.length > 0 && <p className="buttonPara">Clear</p>}
+              {addedCoffee.length > 0 && (
+                <div className="menuFooter">
+                  <p className="buttonPara">Clear</p>
+                  <Link to="/cartPage" className="buttonPara">Goto Cart</Link>
+                </div>
+              )}
               <div className="checkOut">
                 <p>Total:</p>
                 <h3>${totalPrice}</h3>

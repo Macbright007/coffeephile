@@ -33,6 +33,7 @@ export const Navigation = styled.nav`
         display: flex;
         border-bottom: 3px solid #a9643c;
         width: 60%;
+        // cursor: pointer;
     }
 
     label {
@@ -40,7 +41,7 @@ export const Navigation = styled.nav`
       font-weight: 900;
       font-size: 3rem;
     }
-    input {
+    .menu_icon {
       display: none;
     }
 
@@ -49,7 +50,7 @@ export const Navigation = styled.nav`
         width: 50%;
         display: flex;
         justify-content: end;
-       
+        transition: left 8s ease-out;
     }
     .nav-items{
         margin-top: .4rem;
@@ -78,7 +79,7 @@ export const Navigation = styled.nav`
     .shop{
       // border: 2px solid;
       display: flex;
-      position: relative;
+      // position: relative;
       float: left;
     }
     .shop_icon{
@@ -154,9 +155,19 @@ export const Navigation = styled.nav`
       font-size: 15px;
     }
 
+    .menuFooter{
+      display: flex;
+      justify-content: space-between;
+    }
     .buttonPara{
       color: red;
       margin-top: 10px;
+      cursor: pointer;
+    }
+    .menuFooter a{
+      color: #753d21;
+      font-weight: 900;
+      text-decoration: none;
     }
 
     .btn_btn button{
@@ -192,7 +203,7 @@ export const Navigation = styled.nav`
         opacity: .8;
         color: white;
         border-bottom: 4px solid #c0886a;
-        transition: left 0.3s ease-out;
+       
       }
         
       label {
@@ -324,6 +335,27 @@ export const SearchContainer = styled.form`
     color: #a9643c;
     font-size: 15px;
     padding-left: 0.2rem;
+  }
+`;
+
+// styling for About page
+export const AboutContainer = styled.div`
+  // border: 2px solid red;
+  height: 100vh;
+  background: linear-gradient(90deg, #f0d2bf 57.7%, #c0886a 57.7%);
+  padding-top: 7rem;
+
+  .about-details {
+    margin-top: 3rem;
+    border: 2px solid;
+
+    max-width: 950px;
+    margin: auto;
+    display: flex;
+    // justify-content: space-between;
+  }
+  @media (max-width: 950px) {
+    flex-direction: column;
   }
 `;
 
@@ -471,7 +503,7 @@ export const Card = styled.div`
     }
 
     .inner__content button {
-      padding: .6rem;
+      padding: 0.6rem;
       width: 60%;
       font-size: 18px;
       letter-spacing: 3px;
@@ -520,7 +552,8 @@ export const ImgContainer = styled.div`
   // border: 2px solid black;
   width: 40%;
   height: 80vh;
-  border img {
+
+  img {
     width: 100%;
     height: 100%;
     object-fit: fit;
@@ -608,12 +641,14 @@ export const LeftSideContent = styled.div`
 `;
 
 export const SelectWrapper = styled.div`
+  // border: 2px solid;
+  width: 30%;
   position: sticky;
   top: 4rem;
 
   .menu {
     border: 2px solid #753d21;
-    width: 20%;
+    width: 50%;
     padding: 0.5rem;
     margin: 1rem 2rem;
     // background-color: #753d21;
@@ -632,10 +667,17 @@ export const SelectWrapper = styled.div`
 
   // responsive code
   @media (max-width: 648px) {
+    width: 100%;
+    margin: auto;
+    max-width: 350px;
+
     .menu {
-      width: 55%;
-      padding: 1.1rem;
-      font-size: 21px;
+      width: 80%;
+      padding: 0.8rem;
+      font-size: 18px;
+    }
+    .menu option {
+      font-size: 16px;
     }
   }
 `;
