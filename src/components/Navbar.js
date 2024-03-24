@@ -19,10 +19,10 @@ const Navbar = () => {
 
   return (
     <Navigation>
-      <div className="wrap">
+      <div className="wrap genLayout" id="nav">
         <div className="rightnav__side">
           <Link to="/" style={{ textDecoration: "none", color: "#753d21" }}>
-            <h1>
+            <h1 className="logo">
               {/* <img src={logo} alt="logo" /> */}
               <span>
                 Coff
@@ -84,7 +84,8 @@ const Navbar = () => {
                 <h3>${totalPrice}</h3>
               </div>
               <div className="btn_btn">
-                <button>Place Order</button>
+              <Link to="/cartPage">place order</Link>
+                {/* <button>Place Order</button> */}
               </div>
             </div>
           </div>

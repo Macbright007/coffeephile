@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
-export const Navigation = styled.nav`
+export const Navigation = styled.nav`   
     border-bottom: 20px solid #c0886a;
     background: linear-gradient(90deg, #f0d2bf 57.7%, #c0886a 57.7%);
     padding: 8px;
     position: fixed;
     width: 100%;
+    z-index: 1;
 
     .wrap{
-        width: 100%;
-        max-width: 1200px;
-        margin: auto;
         display: flex;
+        align-items: center;
         justify-content: space-between;
     }
 
@@ -22,12 +21,12 @@ export const Navigation = styled.nav`
         justify-content: space-between;
     }
     
-    .rightnav__side h1{
-        color: #753d21;
-        background: #fff;
-        border-radius: 100%;
-        text-decoration: none;
-    }
+    // .rightnav__side h1{
+    //     color: #753d21;
+    //     background: #fff;
+    //     border-radius: 100%;
+    //     text-decoration: none;
+    // }
 
     .search{
         display: flex;
@@ -39,7 +38,7 @@ export const Navigation = styled.nav`
     label {
       display: none;
       font-weight: 900;
-      font-size: 3rem;
+      font-size: 2rem;
     }
     .menu_icon {
       display: none;
@@ -49,12 +48,11 @@ export const Navigation = styled.nav`
         // border: 2px solid;
         width: 50%;
         display: flex;
+        align-items: center;
         justify-content: end;
         transition: left 8s ease-out;
     }
-    .nav-items{
-        margin-top: .4rem;
-    }
+
     .nav-items a{
         padding-right: 6rem;
         color: #a9643c;
@@ -67,7 +65,7 @@ export const Navigation = styled.nav`
         cursor: pointer;
         text-decoration: underline;
     }
-    button{
+    button, .btn_btn>a{
         padding: .7em 2rem;
         color: #fff;
         font-weight: 500;
@@ -77,9 +75,7 @@ export const Navigation = styled.nav`
         cursor: pointer;
     }
     .shop{
-      // border: 2px solid;
       display: flex;
-      // position: relative;
       float: left;
     }
     .shop_icon{
@@ -105,11 +101,11 @@ export const Navigation = styled.nav`
     .menu{
       display: none;
       border: 3px outset #753d21;
-      // height: 30vh;
-      margin: 2.5rem 2rem 0 0;
+      top: 2.8rem;
+      // margin: 2.5rem 2rem 0 0;
       width: 200px;
       position: absolute;
-      right: 0;
+      right: 1rem;
       background-color: #f9f9f9;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
@@ -170,9 +166,17 @@ export const Navigation = styled.nav`
       text-decoration: none;
     }
 
-    .btn_btn button{
-      width: 100%;
+    .btn_btn{
+      width: 170px;
+      margin: auto;
+    }
+
+    .btn_btn>a{
+      text-align: center;
+      display: block;
+      // width: 100%;
       border-radius: 3rem;
+      text-decoration: none;
     }
 
     @media (max-width: 648px) {
@@ -340,7 +344,7 @@ export const SearchContainer = styled.form`
 
 // styling for About page
 export const AboutContainer = styled.div`
-  // border: 2px solid red;
+  border: 2px solid red;
   height: 100vh;
   background: linear-gradient(90deg, #f0d2bf 57.7%, #c0886a 57.7%);
   padding-top: 7rem;
@@ -354,6 +358,15 @@ export const AboutContainer = styled.div`
     display: flex;
     // justify-content: space-between;
   }
+
+  .image__container {
+    // width: 50%;
+    height: 65vh;
+  }
+
+  .image__container img {
+    height: 100%;
+  }
   @media (max-width: 950px) {
     flex-direction: column;
   }
@@ -361,19 +374,16 @@ export const AboutContainer = styled.div`
 
 // products and product card styles
 export const ProductsWrapper = styled.section`
-  // border: 2px solid;
+  padding-bottom: 5rem;
   background: linear-gradient(90deg, #f0d2bf 57.7%, #c0886a 57.7%);
 
   h1 {
+    font-size: 2rem;
     text-align: center;
     padding: 5rem 0;
   }
 
   .card__container {
-    // border: 2px solid;
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
@@ -389,16 +399,15 @@ export const ProductsWrapper = styled.section`
 `;
 
 export const Content = styled.div`
-  //   border:1px solid red;
   width: 100%;
   max-width: 800px;
-  margin: auto;
+  margin: 4rem auto;
   color: white;
   padding: 5px;
 
   h4 {
-    font-size: 45px;
-    font-weight: 800;
+    font-size: 3.8rem;
+    font-weight: 400;
     text-align: center;
   }
 
@@ -425,17 +434,21 @@ export const Content = styled.div`
 
   @media (max-width: 950px) {
     h4 {
-      font-size: 35px;
+      font-size: 2rem;
     }
 
     p {
       margin-top: 7px;
-      font-size: 23px;
+      font-size: 18px;
     }
 
     .btn > button {
       padding: 15px 20px;
-      font-size: 18px;
+      font-size: 14px;
+    }
+
+    .btn {
+      max-width: 200px;
     }
   }
 `;
@@ -513,7 +526,6 @@ export const Card = styled.div`
 
 // styling for productdetails page
 export const AboutWrapper = styled.div`
-  // border: 2px solid black;
   margin-top: 5rem;
 
   h3 {
@@ -536,12 +548,10 @@ export const AboutWrapper = styled.div`
   }
 `;
 export const InnerWrapper = styled.div`
-  // border: 2px solid red;
   width: 100%;
   max-width: 950px;
   margin: auto;
   display: flex;
-  // justify-content: space-between;
 
   @media (max-width: 950px) {
     flex-direction: column;
@@ -549,7 +559,6 @@ export const InnerWrapper = styled.div`
 `;
 
 export const ImgContainer = styled.div`
-  // border: 2px solid black;
   width: 40%;
   height: 80vh;
 
@@ -563,12 +572,10 @@ export const ImgContainer = styled.div`
     width: 85%;
     height: 300px;
     margin: auto;
-    // border: 2px solid blue;
   }
 `;
 
 export const LeftSideContent = styled.div`
-  // border: 2px solid blue;
   width: 40%;
   height: 40vh;
   margin: 3rem 0;
@@ -603,7 +610,6 @@ export const LeftSideContent = styled.div`
   }
 
   .inner_content {
-    // border: 2px solid green;
     width: 100%;
     margin: 2rem 0px;
     display: flex;
@@ -641,7 +647,6 @@ export const LeftSideContent = styled.div`
 `;
 
 export const SelectWrapper = styled.div`
-  // border: 2px solid;
   width: 30%;
   position: sticky;
   top: 4rem;
@@ -679,5 +684,349 @@ export const SelectWrapper = styled.div`
     .menu option {
       font-size: 16px;
     }
+  }
+`;
+
+// styling for footer
+export const FooterWrapper = styled.footer`
+  background-color: #f0d2bf;
+  border-top: 5px double #753d21;
+  padding-top: 2rem;
+  // background: linear-gradient(90deg, #f0d2bf 57.7%, #c0886a 57.7%);
+
+  .inner__footer__wrapper {
+    // border: 2px solid blue;
+    color: #753d21;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h1 {
+        font-size: 14px;
+        font-weight: 300;
+
+        span {
+          text-transform: uppercase;
+          font-weight: 700;
+          margin-right: 7px;
+        }
+      }
+
+      .footer__icon {
+        font-size: 1.3rem;
+        color: #000;
+      }
+
+      form {
+        border-bottom: 2px solid #753d21;
+        padding: 0.4rem 1rem;
+        width: 350px;
+        display: flex;
+        justify-content: space-between;
+        color: #753d21;
+
+        input {
+          width: 50%;
+          border: none;
+          outline: none;
+
+          ::placeholder {
+            color: #753d21;
+          }
+        }
+
+        button {
+          text-transform: uppercase;
+          padding: 0.2rem 0.7rem;
+          font-weight: 700;
+          letter-spacing: 2px;
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          border: none;
+          color: #753d21;
+        }
+      }
+    }
+
+    .middle {
+      margin-block: 2rem;
+
+      .inner__body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+
+        p {
+          width: 50%;
+        }
+
+        .icons {
+          width: 200px;
+          display: flex;
+          gap: 7px;
+
+          span {
+            // background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // border: 1px solid #753d21;
+            padding: 0.4rem 0.6rem;
+            border-radius: 5px;
+            background: #753d21;
+            color: #fff;
+
+            :hover {
+              background: #753d21;
+              cursor: pointer;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+
+    .bottom {
+      border-top: 2px solid;
+      display: flex;
+      justify-content: space-between;
+      padding-block: 1rem;
+
+      .footerLink {
+        display: flex;
+        gap: 17px;
+
+        a {
+          color: #753d21;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 950px) {
+    .top{
+      margin-inline: .8rem;
+      gap: 20px;
+      flex-wrap: wrap;
+
+      h1{
+        font-size: 18px!important;
+      }
+    }
+
+    .middle{
+      a>h1{
+        margin-inline: .8rem;
+      }
+
+    .inner__body{
+      gap: 20px;
+      flex-wrap: wrap;
+
+      p{
+        margin-inline: .8rem;
+        width: 100%!important;
+        line-height: 1.5rem;
+        font-size: 18px;
+        text-align: justify;
+      }
+
+      .icons{
+        margin-inline: .8rem;
+      }
+    }
+  }
+
+  .bottom{
+    margin-inline: .8rem;
+    // align-items: center;
+
+    .footerLink {
+      font-size: 13px;
+    }
+  }
+  }
+`;
+
+// styling for cartpage
+export const CartPageWrapper = styled.div`
+  .cartBoard {
+    padding-block: 5rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5rem;
+  }
+  .empty-cart {
+    text-align: center;
+    padding-block: 5rem;
+  }
+
+  .img-fluid {
+    width: 30%;
+  }
+
+  .empty-cart p {
+    margin-bottom: 30px;
+  }
+  .empty-cart a {
+    text-decoration: none;
+    background: #794e21;
+    padding: 10px;
+    color: #fff;
+    font-weight: 500;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+  }
+  .empty-cart a:hover {
+    background-color: black;
+    color: #fff;
+  }
+  .total {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    flex: 1;
+    // border: 2px solid #794e21;
+
+    h1 {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-bottom: 7px;
+      text-transform: capitalize;
+    }
+  }
+  .ending {
+    display: flex;
+    justify-content: space-between;
+    background: #e4cfc4;
+    color: #000;
+    padding: .8rem 1rem;
+  }
+  .ending p,
+  h3 {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .btn__btn {
+    margin-top: 2rem;
+    background: #c7a17a;
+    max-width: 250px;
+    margin: 2rem auto;
+    border-radius: 7px;
+  }
+
+  .btn__btn button {
+    width: 100%;
+    color: white;
+    // background: #794e21;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+
+  .btn__btn button:hover {
+    background-color: #794e21;
+    color: white;
+    border-radius: 7px;
+  }
+
+  @media (max-width: 950px) {
+    overflow: hidden;
+
+    .total{
+      max-width: 350px;
+    }
+
+    .scroll__bar {
+      width: 380px;
+      overflow: auto;
+    }
+
+    .img-fluid {
+      width: 50%;
+    }
+  }
+`;
+
+export const CartBody = styled.table`
+  width: 100%;
+  margin-top: 1.5rem;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  text-align: left;
+
+  th {
+    padding: 15px;
+    border-bottom: 2px solid #794e21;
+  }
+  td {
+    padding: 15px;
+    border-bottom: 2px solid #794e21;
+  }
+  .del {
+    color: red;
+    font-size: 30px;
+    margin-right: 2.7rem;
+    cursor: pointer;
+  }
+
+  .left {
+    background: red;
+    padding: 7px 20px;
+    border-radius: 5px;
+    color: white;
+    margin-right: 1rem;
+  }
+  .right {
+    background: green;
+    padding: 7px 20px;
+    border-radius: 5px;
+    color: white;
+    margin-left: 1rem;
+  }
+
+  @media (max-width: 950px) {
+    .left {
+      padding: 4px 16px;
+      margin-bottom: 10rem;
+    }
+    .right {
+      padding: 4px 16px;
+      margin-top: 10rem;
+    }
+  }
+`;
+
+export const CartImgCont = styled.div`
+  // border: 2px solid black;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 950px) {
+    width: 80px;
+    height: 80px;
   }
 `;

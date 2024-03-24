@@ -6,6 +6,7 @@ import ProductLists from "./components/ProductLists";
 import { CoffeeProvider } from "./contexts/CoffeeContext";
 import About from "./components/About";
 import CartPage from "./components/CartPage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/cartPage" element={<CartPage />} />
           <Route path="/product/:id" element={<ProductDetailsPage />} />
         </Routes>
+        <Footer />
       </CoffeeProvider>
     </div>
   );

@@ -8,7 +8,7 @@ const ProductCard = ({ item }) => {
   const { id, coffee_name, price, img } = item;
   const { addToCart } = useContext(CoffeeContext);
 
-
+  
   return (
     <Card key={id}>
       <Link

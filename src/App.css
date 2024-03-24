@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Aladin&family=Dr+Sugiyama&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Aladin&family=Dr+Sugiyama&display=swap");
 
 * {
   margin: 0;
@@ -16,4 +15,19 @@
   padding-top: 13rem;
   /* background: rgba(0, 0, 0, 0.445); */
   /* background: linear-gradient(0, 0, 0, 0.445); */
+}
+
+.genLayout {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.logo {
+  display: inline;
+  color: #753d21;
+  background: #fff;
+  border-radius: 100%;
+  text-decoration: none;
+  padding-top: .4rem;
 }

@@ -39,7 +39,7 @@ const ProductLists = () => {
       </SelectWrapper>
 
       <h1>Popular Coffees</h1>
-      <div className="card__container">
+      <div className="card__container genLayout">
         {/* {filteredData.length > 0 ? (
           <FilteredCard filteredData={filteredData}/>
         ) : (

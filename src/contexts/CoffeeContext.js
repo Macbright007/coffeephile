@@ -3,6 +3,8 @@ import { CoffeeDetails } from "../ProductsData";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
+
 const CoffeeContext = createContext({});
 
 const getCoffeesFromStorage = () => {
@@ -33,6 +35,7 @@ export const CoffeeProvider = ({ children }) => {
       setAddedCoffee([...addedCoffee, { ...coffee, qty: 1 }]);
       toast.success("Product Added successfully!", {
         position: toast.POSITION.TOP_CENTER,
+        className: 'toast-message'
       });
     }
   };
