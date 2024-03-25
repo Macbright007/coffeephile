@@ -59,9 +59,7 @@ const Footer = () => {
 
           <div className="inner__body">
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Accusantium fugiat dolorem exercitationem sapiente alias doloribus
-              aperiam ipsum dignissimos necessitatibus deleniti?
+            At Coffphile, we take pride in our dedication and commitment to serving our customers better and provide warmth and happy savor that nourishes the soul.
             </p>
 
             <div className="icons">

@@ -1,6 +1,8 @@
 import React from "react";
 import { AboutContainer } from "./styles";
 import coffeeCup from "../images/coffee.png";
+import { IoCheckmarkSharp } from "react-icons/io5";
+import Services from "./Services";
 
 const About = () => {
   return (
@@ -10,22 +12,38 @@ const About = () => {
           <img src={coffeeCup} alt="coffee" />
         </div>
 
-        <div>
-          <h1>
-            Who We are<span></span>
-          </h1>
+        <div className="aboutContent">
           <h5>
-            Looking for a perfect coffee to start your day and keep you going?
+            Who We are<span></span>
           </h5>
+          <h1>ONE OF THE BEST COFFEE HOUSE IN YOUR HOME TOWN, Coffeephile.</h1>
 
           <p>
-            Look no further! Coffeephile Store provides you with a robust menu
-            to fulfil your every cravings. We take pride in our dedication and
-            commitment to serving our customer better and provide warmth and
-            happy savor that nourishes the soul.
+            Looking for a perfect coffee to start your day and keep you going?
+            Look no further! Coffeephile Store provides you with:
           </p>
+
+          <div className="list">
+            <div className="points">
+              <IoCheckmarkSharp className="listIcon" />
+              <span>a warmth and happy savor that nourishes the soul.</span>
+            </div>
+            <div className="points">
+              <IoCheckmarkSharp className="listIcon" />
+              <span>a robust menu to fulfil your every cravings.</span>
+            </div>
+            <div className="points">
+              <IoCheckmarkSharp className="listIcon" />
+              <span>
+                and we take pride in our dedication and commitment to serving
+                our customer better.
+              </span>
+            </div>
+          </div>
         </div>
       </div>
+
+      <Services />
     </AboutContainer>
   );
 };

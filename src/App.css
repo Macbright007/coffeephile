@@ -8,10 +8,11 @@
   background: transparent;
 }
 .banner {
-  background-image: url(./images/Background.svg);
+  /* background-image: url(./images/Background.svg); */
+  background-image: url(./images/breadcrumb-bg-1.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 80vh;
+  height: 60vh;
   padding-top: 13rem;
   /* background: rgba(0, 0, 0, 0.445); */
   /* background: linear-gradient(0, 0, 0, 0.445); */
@@ -31,3 +32,18 @@
   text-decoration: none;
   padding-top: .4rem;
 }
+
+.listIcon{
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 30px;
+  height: 20px;
+  padding: .3rem;
+}
+.listIcon:hover{
+  background: #753d21;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+}
+

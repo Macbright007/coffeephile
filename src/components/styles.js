@@ -222,7 +222,7 @@ export const Navigation = styled.nav`
         display: flex;
         flex-direction: column;
       }
-      .nav-items a{
+      .nav-items>a{
         color: white;
         font-size: 22px;
         padding-top: 2rem;
@@ -231,6 +231,7 @@ export const Navigation = styled.nav`
       }
 
       .nav-items a:hover {
+        text-decoration: none;
         background-color: white;
         color: #00474b;
         cursor: pointer;
@@ -344,33 +345,187 @@ export const SearchContainer = styled.form`
 
 // styling for About page
 export const AboutContainer = styled.div`
-  border: 2px solid red;
-  height: 100vh;
+  // border: 2px solid red;
+  // height: 100vh;
   background: linear-gradient(90deg, #f0d2bf 57.7%, #c0886a 57.7%);
-  padding-top: 7rem;
+  padding-block: 7rem;
 
   .about-details {
-    margin-top: 3rem;
-    border: 2px solid;
-
+    // border: 2px solid;
     max-width: 950px;
-    margin: auto;
+    margin: 4rem auto;
     display: flex;
-    // justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
   }
 
   .image__container {
-    // width: 50%;
-    height: 65vh;
+    height: 55vh;
   }
 
   .image__container img {
     height: 100%;
   }
+
+  .aboutContent{
+    h5{
+      font-size: 14px;
+      color: #fff;
+      background-color: #753d21;
+      display: inline;
+      padding: .5rem 1rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    h1{
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      margin-block: 2rem;
+      color: #753d21;
+      font-weight: 900;
+    }
+
+    p{
+      font-size: 16px;
+      color: #150e0a;
+      margin-block: 1rem;
+    }
+
+    .list{
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .points{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  }
+
+
   @media (max-width: 950px) {
-    flex-direction: column;
+    .about-details{
+       flex-direction: column;
+
+
+       .aboutContent{
+        width: 340px;
+
+
+        p{
+          font-size: 18px;
+        }
+
+        .points>span{
+          font-size: 18px;
+        }
+       }
+    }
+
   }
 `;
+
+// styling for Services
+export const ServiceWrapper = styled.section`
+  .services{
+    max-width: 950px;
+    margin: 4rem auto;
+
+    h3{
+      font-size: 14px;
+      color: #fff;
+      background-color: #753d21;
+      width: 100px;
+      margin: auto;
+      text-transform: uppercase;
+      padding: .5rem 1rem;
+      border-radius: 4px;
+      font-weight: 200;
+      text-align: center;
+    }
+
+   h1{
+      margin-block: 2rem;
+      text-align: center;
+      font-size: 30px;
+      text-transform: uppercase;
+      color: #753d21;
+    }
+
+
+    .service__cards{
+      margin-top: 2rem;
+      display: flex;
+      gap: 15px;
+
+
+      .serviceCard{
+        border: 1px solid #753d21;
+        padding: 2rem;
+        border-radius: 15px;
+        background: white;
+        box-shadow: .3rem .2rem 1rem #753d21;
+
+        :hover{
+          background: #753d21;
+          color: #fff;
+          cursor: pointer;
+
+          h1{
+            color: #fff;
+          }
+
+          .listIcon{
+            border: 2px solid #fff;
+          }
+
+          .serviceImg>img{
+            color:#fff;
+          }
+        }
+
+        h1{
+          font-weight: 200;
+          font-size: 20px;
+        }
+
+        p{
+          text-align: center;
+        }
+
+        .serviceImg{
+          width: 60px;
+          height: 60px;
+          margin: auto;
+
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .serviceIcon{
+          width: 60px;
+          margin: 1rem auto;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 950px) {
+    .service__cards{
+      flex-direction: column;
+      width: 330px;
+      margin: auto;
+    }
+  }
+
+`
 
 // products and product card styles
 export const ProductsWrapper = styled.section`
