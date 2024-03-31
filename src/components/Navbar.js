@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Navigation } from "./styles";
 import { Link } from "react-router-dom";
 // import logo from "../images/Logo.svg";
+// import { GiCoffeeCup, GiConsoleController } from "react-icons/gi";
 import { GiCoffeeCup } from "react-icons/gi";
 import { FiShoppingCart, FiSearch } from "react-icons/fi";
 import Search from "./Search";
@@ -10,8 +11,11 @@ import CartDropDown from "./CartDropDown";
 import cart from "../images/empty.jpg";
 
 const Navbar = () => {
-  const { addedCoffee, removeFromCart } = useContext(CoffeeContext);
+  // const { addedCoffee, removeFromCart } = useContext(CoffeeContext);
+  const { addedCoffee, searchValue, handleSearchChange } = useContext(CoffeeContext);
+  
 
+  // function to calculate total price of items added 
   const totalPrice = addedCoffee.reduce(
     (acc, curr) => acc + curr.price * curr.qty,
     0
@@ -42,7 +46,7 @@ const Navbar = () => {
             <FiSearch
               style={{ color: "#a9643c", fontSize: "22px", marginTop: ".2em" }}
             />
-            <Search />
+            <Search onChange={handleSearchChange} searchValue={searchValue} />
           </div>
         </div>
 

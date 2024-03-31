@@ -1,10 +1,15 @@
 import React from 'react'
 import { SearchContainer } from './styles'
 
-const Search = () => {
+const Search = ({onChange}) => {
+
+  const handleChange = (e) => {
+    onChange(e.target.value)
+  }
+
   return (
     <SearchContainer>
-        <input type='text' placeholder='search for coffee..'/>
+        <input type='search' placeholder='search for coffee..' onChange={handleChange} />
     </SearchContainer>
   )
 }

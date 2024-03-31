@@ -3,8 +3,6 @@ import { CoffeeDetails } from "../ProductsData";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
-
 const CoffeeContext = createContext({});
 
 const getCoffeesFromStorage = () => {
@@ -17,25 +15,30 @@ const getCoffeesFromStorage = () => {
 
 export const CoffeeProvider = ({ children }) => {
   const [addedCoffee, setAddedCoffee] = useState(getCoffeesFromStorage());
+  const [searchValue, setSearchValue] = useState("");
+
+  // function to handle search input
+  const handleSearchChange = (val) => {
+    setSearchValue(val);
+  };
 
   // function to add coffee to cart page
   const addToCart = (coffee) => {
     const exist = addedCoffee.find((x) => x.id === coffee.id);
-    if (exist){
+    if (exist) {
       setAddedCoffee(
         addedCoffee.map((x) =>
           x.id === coffee.id ? { ...exist, qty: exist.qty + 1 } : x
         )
       );
-      toast.warning('Product already added!', {
-        position: toast.POSITION.TOP_LEFT
-    });
-    } 
-    else {
+      toast.warning("Product already added!", {
+        position: toast.POSITION.TOP_LEFT,
+      });
+    } else {
       setAddedCoffee([...addedCoffee, { ...coffee, qty: 1 }]);
       toast.success("Product Added successfully!", {
         position: toast.POSITION.TOP_CENTER,
-        className: 'toast-message'
+        className: "toast-message",
       });
     }
   };
@@ -44,6 +47,8 @@ export const CoffeeProvider = ({ children }) => {
     localStorage.setItem("selectedCoffees", JSON.stringify(addedCoffee));
   }, [addedCoffee]);
 
+
+  // function to remove item from cart
   const removeFromCart = (coffeeId) => {
     const exist = addedCoffee.find((x) => x.id === coffeeId);
     if (exist.qty === 1) {
@@ -64,6 +69,8 @@ export const CoffeeProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         CoffeeDetails,
+        handleSearchChange,
+        searchValue
       }}
     >
       {children}

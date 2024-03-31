@@ -105,7 +105,7 @@ export const Navigation = styled.nav`
       // margin: 2.5rem 2rem 0 0;
       width: 200px;
       position: absolute;
-      right: 1rem;
+      right: 13rem;
       background-color: #f9f9f9;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
@@ -180,7 +180,7 @@ export const Navigation = styled.nav`
     }
 
     @media (max-width: 648px) {
-      .rightnav__side h1{
+      .rightnav__side>h1{
         font-size: 2rem;
         margin-top: .9rem;
       }
@@ -192,13 +192,11 @@ export const Navigation = styled.nav`
       
       .leftnav__side {
         display: none;
-        // width: 100%;
         height: 30vh;
         padding: 20px;
         position: absolute;
         top: 20px;
         right: -250px;
-        // left: -250px;
         width: 300px;
         margin-top: 70px;
         z-index: 1;
@@ -207,7 +205,6 @@ export const Navigation = styled.nav`
         opacity: .8;
         color: white;
         border-bottom: 4px solid #c0886a;
-       
       }
         
       label {
@@ -244,15 +241,18 @@ export const Navigation = styled.nav`
        letter-spacing: 2px;
         width: 4  0%;
       }
+
       .shop{
         position: absolute; 
         top: 11.4rem;
         right: 3rem;
       }
+
       .shop_icon{
         color: white;
         font-size: 42px;
       }
+
       .spa{
         background-color: white;
         color: #753d21;
@@ -260,13 +260,19 @@ export const Navigation = styled.nav`
         width: 30px;
         font-size: 15px;
       }
+
      #toggle:checked + .leftnav__side {
         display: block;
         right: 0;
-        // left: 0;
       }
+
       #toggle:checked + label {
         transform: translateX(250px);
+      }
+
+      .menu{
+        right: 0;
+        margin-top: .2rem;
       }
     }
 `;
@@ -328,7 +334,7 @@ export const CartWrapper = styled.div`
 export const SearchContainer = styled.form`
   width: 100%;
 
-  input[type="text"] {
+  input[type="search"] {
     width: 100%;
     height: 100%;
     border: none;
@@ -336,7 +342,7 @@ export const SearchContainer = styled.form`
     color: #a9643c;
     // background: transparent;
   }
-  input[type="text"]::placeholder {
+  input[type="search"]::placeholder {
     color: #a9643c;
     font-size: 15px;
     padding-left: 0.2rem;
@@ -351,7 +357,7 @@ export const AboutContainer = styled.div`
   padding-block: 7rem;
 
   .about-details {
-    // border: 2px solid;
+    // border: 2px solid blue;
     max-width: 950px;
     margin: 4rem auto;
     display: flex;
@@ -439,7 +445,7 @@ export const ServiceWrapper = styled.section`
       font-size: 14px;
       color: #fff;
       background-color: #753d21;
-      width: 100px;
+      width: 150px;
       margin: auto;
       text-transform: uppercase;
       padding: .5rem 1rem;
@@ -456,12 +462,10 @@ export const ServiceWrapper = styled.section`
       color: #753d21;
     }
 
-
     .service__cards{
       margin-top: 2rem;
       display: flex;
       gap: 15px;
-
 
       .serviceCard{
         border: 1px solid #753d21;
@@ -681,7 +685,7 @@ export const Card = styled.div`
 
 // styling for productdetails page
 export const AboutWrapper = styled.div`
-  margin-top: 5rem;
+  // margin-top: 3rem;
 
   h3 {
     text-align: center;
@@ -707,6 +711,9 @@ export const InnerWrapper = styled.div`
   max-width: 950px;
   margin: auto;
   display: flex;
+  gap: 2rem;
+  align-items: center;
+  // border: 2px solid blue;
 
   @media (max-width: 950px) {
     flex-direction: column;
@@ -732,7 +739,7 @@ export const ImgContainer = styled.div`
 
 export const LeftSideContent = styled.div`
   width: 40%;
-  height: 40vh;
+  // height: 40vh;
   margin: 3rem 0;
 
   p {
@@ -744,7 +751,7 @@ export const LeftSideContent = styled.div`
 
   h1 {
     font-weight: 600;
-    font-size: 3rem;
+    font-size: 2rem;
     color: #794e21;
     text-align: right;
   }

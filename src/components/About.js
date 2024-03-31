@@ -34,10 +34,8 @@ const About = () => {
             </div>
             <div className="points">
               <IoCheckmarkSharp className="listIcon" />
-              <span>
-                and we take pride in our dedication and commitment to serving
-                our customer better.
-              </span>
+              <span>and we take pride in our dedication .</span>
+              {/* <span>and we take pride in our dedication and commitment to serving our customer better.</span> */}
             </div>
           </div>
         </div>

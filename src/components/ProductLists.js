@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ProductCard from "./ProductCard";
 import { CoffeeDetails } from "../ProductsData";
 import { ProductsWrapper, SelectWrapper } from "./styles";
 import Banner from "./Banner";
 import SelectMenu from "./SelectMenu";
-
-
+import CoffeeContext from "../contexts/CoffeeContext";
 
 const ProductLists = () => {
   const [menuSelected, setMenuSelected] = useState("");
+  const { searchValue } = useContext(CoffeeContext);
 
   const handleOptionChange = (event) => {
     setMenuSelected(event.target.value);
@@ -18,8 +18,19 @@ const ProductLists = () => {
   const uniqueCategories = Array.from(
     new Set(CoffeeDetails.map((item) => item.label))
   );
- 
-  const filteredData = menuSelected === "" ? CoffeeDetails : CoffeeDetails.filter((item) => item.label === menuSelected);
+
+  const filteredData =
+    menuSelected === ""
+      ? CoffeeDetails
+      : CoffeeDetails.filter((item) => item.label === menuSelected);
+
+  // function to filter on search
+  const filteredCoffees =
+    searchValue !== ""
+      ? filteredData.filter((coffeeItem) =>
+          coffeeItem?.coffee_name?.toLowerCase().includes(searchValue.toLowerCase())
+        )
+      : filteredData;
 
   // const uniqueFilterOptions = Array.from(new Set(CoffeeDetails.map((option) => option.label)))
   // .map((label) => CoffeeDetails.find((option) => option.label === label));
@@ -47,12 +58,13 @@ const ProductLists = () => {
             return <ProductCard item={coffeeDetail} />;
           })
         )} */}
-            
-        {
-           filteredData.map((coffeeDetail) => {
-            return <ProductCard item={coffeeDetail} />;
-          })
-        }
+
+        {filteredCoffees.length < 1 && (
+          <p className="para">No coffee found</p>
+        )}
+        {filteredCoffees.map((coffeeDetail) => {
+          return <ProductCard item={coffeeDetail} />;
+        })}
       </div>
     </ProductsWrapper>
   );
