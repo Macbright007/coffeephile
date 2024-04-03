@@ -23,7 +23,7 @@ const ProductCard = ({ item }) => {
       <div className="content">
         <h2>{coffee_name}</h2>
         <div className="inner__content">
-          <p>${price}</p>
+          <p>#{price}</p>
           <button onClick={() => addToCart(item)}>Add to Cart</button>
         </div>
       </div>

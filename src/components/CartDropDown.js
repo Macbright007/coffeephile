@@ -30,7 +30,7 @@ const CartDropDown = ({coffee}) => {
       </div>
       <div>
         <MdDeleteForever className="delIcon" onClick={() => removeFromCart(coffee.id)} />
-        <p>${coffee.price}</p>
+        <p>#{coffee.price}</p>
       </div>
     </CartWrapper>
   );

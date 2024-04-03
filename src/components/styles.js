@@ -167,7 +167,7 @@ export const Navigation = styled.nav`
     }
 
     .btn_btn{
-      width: 170px;
+      width: 190px;
       margin: auto;
     }
 
@@ -1067,6 +1067,13 @@ export const CartPageWrapper = styled.div`
       margin-bottom: 7px;
       text-transform: capitalize;
     }
+
+    p{
+      text-align: center;
+      font-size: 22px;
+      text-transform: capitalize;
+      letter-spacing: 3px;
+    }
   }
   .ending {
     display: flex;
@@ -1074,6 +1081,7 @@ export const CartPageWrapper = styled.div`
     background: #e4cfc4;
     color: #000;
     padding: .8rem 1rem;
+    margin-block: 1rem;
   }
   .ending p,
   h3 {
@@ -1081,30 +1089,52 @@ export const CartPageWrapper = styled.div`
     font-weight: 500;
   }
   .btn__btn {
-    margin-top: 2rem;
-    background: #c7a17a;
-    max-width: 250px;
+    // background: #c7a17a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 600px;
     margin: 2rem auto;
     border-radius: 7px;
-  }
 
-  .btn__btn button {
-    width: 100%;
-    color: white;
-    // background: #794e21;
-    padding: 1rem 1.2rem;
-    cursor: pointer;
-    border: none;
-    font-weight: 500;
-    letter-spacing: 2px;
-    font-size: 13px;
-    text-transform: uppercase;
-  }
+    .formInput{
+      border-bottom: 2px solid #794e21;
+      margin-bottom: .7rem;
 
-  .btn__btn button:hover {
-    background-color: #794e21;
-    color: white;
-    border-radius: 7px;
+      label{
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+
+      input{
+        width: 100%; 
+        padding: .4rem;
+        border: none;
+        outline: none;
+        font-size: 17px;
+      }
+    }
+
+    button{
+      color: white;   
+      background: #794e21;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      border: none;
+      font-weight: 500;
+      letter-spacing: 2px;
+      font-size: 13px;
+      text-transform: uppercase;
+
+      :hover {
+        background-color: #794e21;
+        color: white;
+        border-radius: 7px;
+      }
+      :disabled{
+        background-color: gray;
+      }
+    }
   }
 
   @media (max-width: 950px) {
@@ -1121,6 +1151,11 @@ export const CartPageWrapper = styled.div`
 
     .img-fluid {
       width: 50%;
+    }
+
+    .btn__btn {
+      flex-direction: column;
+      gap: 20px;
     }
   }
 `;
@@ -1192,3 +1227,37 @@ export const CartImgCont = styled.div`
     height: 80px;
   }
 `;
+
+
+// styling for checkout page
+export const FormContainer = styled.div`
+  border: 2px solid black;
+  padding-block: 7rem;
+
+  h1{
+    text-align: center;
+  }
+
+  form{
+    box-shadow: .4rem .5rem 25px grey;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 4rem auto;
+
+
+    button{
+      width: 100%;
+      padding-block: .6rem;
+      background: #09a5db;
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      margin-top: 2rem;
+      text-transform: uppercase;
+    }
+
+    button:hover{
+      cursor: pointer;
+    }
+  }
+`

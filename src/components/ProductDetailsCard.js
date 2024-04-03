@@ -14,7 +14,7 @@ const ProductDetailsCard = ({coffee}) => {
           </p>
           <span>Available</span>
           <div className="inner_content">
-            <h2>${coffee.price}</h2>
+            <h2>#{coffee.price}</h2>
             <button>Add to cart</button>
           </div>
         </LeftSideContent>

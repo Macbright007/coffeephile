@@ -89,7 +89,7 @@ const Footer = () => {
             <Link to="/shop">shop</Link>
           </div>
 
-          <Link to="/" style={{ textDecoration: "none", color: "#753d21" }}>
+          <Link to="#" style={{ textDecoration: "none", color: "#753d21", transform: "translateX(0%)" }}>
             go top <HiOutlineArrowNarrowUp />
           </Link>
         </div>

@@ -85,11 +85,10 @@ const Navbar = () => {
               )}
               <div className="checkOut">
                 <p>Total:</p>
-                <h3>${totalPrice}</h3>
+                <h3>#{totalPrice}</h3>
               </div>
               <div className="btn_btn">
-              <Link to="/cartPage">place order</Link>
-                {/* <button>Place Order</button> */}
+              <Link to="/cartPage">place order (#{totalPrice})</Link>
               </div>
             </div>
           </div>

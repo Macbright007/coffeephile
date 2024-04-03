@@ -4,7 +4,7 @@ import { SearchContainer } from './styles'
 const Search = ({onChange}) => {
 
   const handleChange = (e) => {
-    onChange(e.target.value)
+    onChange(e.target.value) 
   }
 
   return (

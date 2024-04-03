@@ -7,6 +7,7 @@ import { CoffeeProvider } from "./contexts/CoffeeContext";
 import About from "./components/About";
 import CartPage from "./components/CartPage";
 import Footer from "./components/Footer";
+import PaymentIntegration from "./components/PaymentIntegration";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<ProductLists />} />
           <Route path="/about" element={<About />} />
           <Route path="/cartPage" element={<CartPage />} />
+          <Route path="/checkOut" element={<PaymentIntegration />} />
           <Route path="/product/:id" element={<ProductDetailsPage />} />
         </Routes>
         <Footer />
